@@ -7,11 +7,11 @@ describe("Login Feature", () => {
 
   it("should successfully log in with valid credentials", () => {
     cy.login(loginData.validUser.username, loginData.validUser.password);
-    cy.get("#dashboard").should("be.visible"); // Verify successful login
+    cy.get("#inventory_container").should("be.visible"); // Verify successful login
   });
 
   it("should show an error message for invalid credentials", () => {
     cy.login(loginData.invalidUser.username, loginData.invalidUser.password);
-    cy.get(".error-message").should("contain", "Invalid username or password"); // Verify error message
+    cy.get(".error-message-container").should("contain", "Epic sadface: Username and password do not match any user in this service"); // Verify error message
   });
 });
